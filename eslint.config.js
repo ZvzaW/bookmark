@@ -16,5 +16,6 @@ module.exports = [
   react.configs.flat.recommended,
   react.configs.flat["jsx-runtime"],
   reactHooks.configs.flat.recommended,
+  { rules: { "react/prop-types": "off" } },
   prettier,
 ];
