@@ -1,4 +1,10 @@
-import { createRoot } from 'react-dom/client';
-import './styles/index.scss';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App";
+import "./styles/index.scss";
 
-createRoot(document.getElementById('root')).render(<h1>Bookmark</h1>);
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+);

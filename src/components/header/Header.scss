@@ -1,0 +1,157 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.header {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1110px;
+    margin-inline: auto;
+    padding: 40px 32px;
+  }
+
+  &__logo,
+  &__toggle {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__logo:focus-visible,
+  &__toggle:focus-visible,
+  &__link:focus-visible,
+  &__social-link:focus-visible {
+    outline: 2px solid $light-red;
+    outline-offset: 2px;
+  }
+
+  &__toggle {
+    border: 0;
+    background: none;
+    cursor: pointer;
+
+    @include breakpoint(md) {
+      display: none;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    padding: 105px 32px 48px;
+    background-color: rgba($dark-blue, 0.95);
+
+    @include breakpoint(md) {
+      position: static;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 48px;
+      padding: 0;
+      background: none;
+    }
+  }
+
+  &--open &__menu {
+    display: flex;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid rgba(white, 0.15);
+
+    @include breakpoint(md) {
+      display: flex;
+      gap: 48px;
+      border: 0;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding-block: 20px;
+    border-bottom: 1px solid rgba(white, 0.15);
+    color: white;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+
+    @include breakpoint(md) {
+      padding: 0;
+      border: 0;
+      color: $dark-blue;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    &:hover {
+      color: $light-red;
+    }
+  }
+
+  &__menu &__login {
+    margin-top: 24px;
+    padding-block: 12px;
+    border-color: white;
+    background-color: transparent;
+    box-shadow: none;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2.3px;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: white;
+      color: $dark-blue;
+    }
+
+    @include breakpoint(md) {
+      margin-top: 0;
+      padding: 10px 32px;
+      border-color: transparent;
+      background-color: $light-red;
+      box-shadow: 0 8px 8px -4px rgba($light-red, 0.4);
+      font-size: 13px;
+      letter-spacing: 1.5px;
+
+      &:hover {
+        border-color: $light-red;
+        background-color: white;
+        color: $light-red;
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: auto 0 0;
+    padding: 0;
+    list-style: none;
+
+    @include breakpoint(md) {
+      display: none;
+    }
+  }
+
+  &__social-link {
+    display: flex;
+
+    path {
+      transition: fill 0.2s;
+    }
+
+    &:hover path {
+      fill: $light-red;
+    }
+  }
+}

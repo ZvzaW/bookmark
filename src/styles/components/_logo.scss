@@ -1,0 +1,18 @@
+@use "../abstracts/variables" as *;
+
+.logo--footer {
+  path[fill="#242A45"] {
+    fill: white;
+  }
+}
+
+.logo--menu {
+  path[fill="#242A45"],
+  circle[fill="#5267DF"] {
+    fill: white;
+  }
+
+  path[fill="#FFF"] {
+    fill: $dark-blue;
+  }
+}
