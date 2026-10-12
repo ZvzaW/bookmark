@@ -16,7 +16,6 @@ const Features = () => {
     tabRefs.current[index].focus();
   };
 
-  // Keyboard support from the WAI-ARIA tabs pattern: arrows, Home, End
   const handleKeyDown = (event) => {
     const lastIndex = features.length - 1;
     const nextIndex = {
