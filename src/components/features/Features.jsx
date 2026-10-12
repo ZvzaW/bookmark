@@ -95,7 +95,9 @@ const Features = () => {
           <div className="features__content">
             <h3 className="features__heading">{activeFeature.title}</h3>
             <p className="features__description">{activeFeature.text}</p>
-            <Button className="features__more">More Info</Button>
+            <Button href="#faq" className="features__more">
+              More Info
+            </Button>
           </div>
         </div>
       </div>

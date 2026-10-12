@@ -1,0 +1,164 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.faq {
+  padding-top: 60px;
+  padding-bottom: 120px;
+
+  @include breakpoint(md) {
+    padding-top: 75px;
+    padding-bottom: 150px;
+  }
+
+  &__intro {
+    max-width: 540px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  &__title {
+    margin: 0;
+    color: $dark-blue;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 30px;
+
+    @include breakpoint(md) {
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+
+  &__text {
+    margin: 8px 0 0;
+    color: $gray;
+    font-size: 15px;
+    line-height: 25px;
+
+    @include breakpoint(md) {
+      margin-top: 24px;
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  &__list {
+    max-width: 540px;
+    margin: 40px auto 0;
+    padding: 0;
+    list-style: none;
+
+    @include breakpoint(md) {
+      margin-top: 56px;
+      border-top: 1px solid rgba($gray, 0.3);
+    }
+  }
+
+  &__item {
+    border-bottom: 1px solid rgba($gray, 0.3);
+  }
+
+  &__question {
+    margin: 0;
+    font: inherit;
+  }
+
+  &__toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 20px 0;
+    border: 0;
+    background: none;
+    color: $dark-blue;
+    font: inherit;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    @include breakpoint(md) {
+      padding-right: 23px;
+      font-size: 18px;
+    }
+
+    &:hover {
+      color: $light-red;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $light-red;
+      outline-offset: 2px;
+    }
+  }
+
+  &__arrow {
+    flex-shrink: 0;
+    transition: transform 0.3s;
+
+    path {
+      transition: stroke 0.3s;
+    }
+  }
+
+  &__item--open &__arrow {
+    transform: rotate(180deg);
+
+    path {
+      stroke: $light-red;
+    }
+  }
+
+  &__answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition:
+      grid-template-rows 0.3s,
+      visibility 0.3s;
+  }
+
+  &__item--open &__answer {
+    grid-template-rows: 1fr;
+    visibility: visible;
+  }
+
+  &__answer-inner {
+    overflow: hidden;
+  }
+
+  &__answer-text {
+    margin: 0;
+    padding: 12px 0 30px;
+    color: rgba($dark-blue, 0.75);
+    font-size: 15px;
+    line-height: 30px;
+
+    @include breakpoint(md) {
+      padding-top: 16px;
+      font-size: 16px;
+      line-height: 36px;
+    }
+  }
+
+  &__actions {
+    margin-top: 54px;
+    text-align: center;
+  }
+
+  &__more {
+    padding: 14px 24px;
+    font-weight: 500;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__arrow,
+    &__arrow path,
+    &__answer {
+      transition: none;
+    }
+  }
+}

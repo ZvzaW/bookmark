@@ -1,6 +1,12 @@
 @use "layout/container";
 @use "components/logo";
 
+html {
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}
+
 body {
   margin: 0;
   font-family: "Rubik", sans-serif;
