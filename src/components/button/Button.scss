@@ -1,0 +1,63 @@
+@use "../../styles/abstracts/variables" as *;
+
+.button {
+  border: 2px solid transparent;
+  border-radius: 4px;
+  padding-block: 8px;
+  padding-inline: 20px;
+  cursor: pointer;
+  box-shadow: 0 8px 6px -4px rgba($gray, 0.3);
+  font: inherit;
+  font-size: 14px;
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    border-color 0.2s;
+
+  &:hover {
+    background-color: white;
+  }
+
+  &:focus-visible {
+    outline: 2px solid;
+    outline-offset: 2px;
+  }
+
+  // ===== Variants =====
+  &--primary {
+    color: white;
+    background-color: $light-blue;
+
+    &:focus-visible {
+      outline-color: $light-blue;
+    }
+
+    &:hover {
+      color: $light-blue;
+      border-color: currentColor;
+    }
+  }
+
+  &--secondary {
+    color: rgba($dark-blue, 0.8);
+    background-color: rgba($gray, 0.1);
+
+    &:hover {
+      border-color: currentColor;
+    }
+  }
+
+  &--accent {
+    color: white;
+    background-color: $light-red;
+
+    &:focus-visible {
+      outline-color: $light-red;
+    }
+
+    &:hover {
+      color: $light-red;
+      border-color: currentColor;
+    }
+  }
+}
