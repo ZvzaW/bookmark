@@ -37,7 +37,7 @@ const Header = () => {
 
   return (
     <header className={`header ${isMenuOpen ? "header--open" : ""}`}>
-      <div className="header__container">
+      <div className="container header__container">
         <a
           href="/"
           className={`header__logo ${isMenuOpen ? "logo--menu" : ""}`}

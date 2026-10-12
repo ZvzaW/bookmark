@@ -1,0 +1,105 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.hero {
+  overflow: hidden;
+
+  &__container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 56px;
+    padding-top: 32px;
+    padding-bottom: 64px;
+
+    @include breakpoint(md) {
+      flex-direction: row;
+      align-items: center;
+      gap: 32px;
+      padding-top: 60px;
+      padding-bottom: 120px;
+    }
+  }
+
+  &__content {
+    text-align: center;
+
+    @include breakpoint(md) {
+      flex: 0 0 48%;
+      text-align: left;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    color: $dark-blue;
+    font-size: 30px;
+    font-weight: 500;
+
+    @include breakpoint(md) {
+      font-size: 48px;
+    }
+  }
+
+  &__text {
+    margin: 16px 0 32px;
+    color: $gray;
+    font-size: 15px;
+    line-height: 25px;
+
+    @include breakpoint(md) {
+      max-width: 480px;
+      margin-top: 24px;
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+
+    @include breakpoint(md) {
+      justify-content: flex-start;
+      gap: 16px;
+    }
+  }
+
+  
+
+  &__image {
+    position: relative;
+    z-index: 0;
+    margin-inline: -20px;
+
+    @include breakpoint(md) {
+      flex: 0 0 59.2%;
+      margin-inline: 0;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 22%;
+      left: 18%;
+      z-index: -1;
+      width: 100vw;
+      height: 81.5%;
+      border-bottom-left-radius: 100px;
+      background-color: $light-blue;
+
+      @include breakpoint(md) {
+        top: 30.6%;
+        left: 31.4%;
+        height: 75.5%;
+        border-bottom-left-radius: 176px;
+      }
+    }
+  }
+}
