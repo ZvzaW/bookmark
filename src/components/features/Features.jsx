@@ -1,9 +1,35 @@
-import { features, featureTabs } from "../../data/features";
+import { useRef, useState } from "react";
+import { features } from "../../data/features";
 import Button from "../button/Button";
 import "./Features.scss";
 
+const PANEL_ID = "features-panel";
+const getTabId = (id) => `features-tab-${id}`;
+
 const Features = () => {
-  const [activeFeature] = features;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const tabRefs = useRef([]);
+  const activeFeature = features[activeIndex];
+
+  const selectTab = (index) => {
+    setActiveIndex(index);
+    tabRefs.current[index].focus();
+  };
+
+  // Keyboard support from the WAI-ARIA tabs pattern: arrows, Home, End
+  const handleKeyDown = (event) => {
+    const lastIndex = features.length - 1;
+    const nextIndex = {
+      ArrowRight: activeIndex === lastIndex ? 0 : activeIndex + 1,
+      ArrowLeft: activeIndex === 0 ? lastIndex : activeIndex - 1,
+      Home: 0,
+      End: lastIndex,
+    }[event.key];
+
+    if (nextIndex === undefined) return;
+    event.preventDefault();
+    selectTab(nextIndex);
+  };
 
   return (
     <section
@@ -23,16 +49,26 @@ const Features = () => {
           </p>
         </header>
 
-        <div className="features__tabs" role="tablist" aria-label="Features">
-          {featureTabs.map((label) => {
-            const isActive = label === activeFeature.label;
+        <div
+          className="features__tabs"
+          role="tablist"
+          aria-label="Features"
+          onKeyDown={handleKeyDown}
+        >
+          {features.map(({ id, label }, index) => {
+            const isActive = index === activeIndex;
             return (
               <button
-                key={label}
+                key={id}
+                ref={(element) => (tabRefs.current[index] = element)}
+                id={getTabId(id)}
                 type="button"
                 role="tab"
                 className={`features__tab ${isActive ? "features__tab--active" : ""}`}
                 aria-selected={isActive}
+                aria-controls={PANEL_ID}
+                tabIndex={isActive ? 0 : -1}
+                onClick={() => setActiveIndex(index)}
               >
                 <span className="features__tab-label">{label}</span>
               </button>
@@ -40,8 +76,15 @@ const Features = () => {
           })}
         </div>
 
-        <div className="features__panel" role="tabpanel">
-          <div className="features__image">
+        <div
+          id={PANEL_ID}
+          className="features__panel"
+          role="tabpanel"
+          aria-labelledby={getTabId(activeFeature.id)}
+        >
+          <div
+            className={`features__image features__image--${activeFeature.id}`}
+          >
             <img
               src={activeFeature.image.src}
               alt=""

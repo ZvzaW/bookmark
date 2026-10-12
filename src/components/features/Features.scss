@@ -137,8 +137,10 @@
     @include breakpoint(md) {
       flex-direction: row;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       gap: 32px;
+      // Tall enough for the blue shape, so switching tabs doesn't move the page
+      min-height: 435px;
     }
 
     &::before {
@@ -171,6 +173,16 @@
       width: 100%;
       height: auto;
     }
+
+    &--searching img {
+      width: 88.5%;
+      margin-left: 14.6%;
+    }
+
+    &--sharing img {
+      width: 81.5%;
+      margin-left: 14.6%;
+    }
   }
 
   &__content {
@@ -178,6 +190,7 @@
 
     @include breakpoint(md) {
       flex: 0 1 445px;
+      margin-top: 63px;
       text-align: left;
     }
   }
