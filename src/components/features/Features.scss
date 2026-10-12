@@ -1,0 +1,221 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.features {
+  overflow: hidden;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @include breakpoint(md) {
+    padding-top: 80px;
+    padding-bottom: 90px;
+  }
+
+  &__intro {
+    max-width: 540px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  &__title {
+    margin: 0;
+    color: $dark-blue;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+
+    @include breakpoint(md) {
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+
+  &__text {
+    margin: 8px 0 0;
+    color: $gray;
+    font-size: 15px;
+    line-height: 25px;
+
+    @include breakpoint(md) {
+      margin-top: 24px;
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  // ===== Tabs =====
+  &__tabs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    border-top: 1px solid rgba($gray, 0.3);
+
+    @include breakpoint(md) {
+      flex-direction: row;
+      max-width: 730px;
+      margin: 68px auto 0;
+      border-top: 0;
+      border-bottom: 1px solid rgba($gray, 0.3);
+    }
+  }
+
+  &__tab {
+    flex: 1;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid rgba($gray, 0.3);
+    background: none;
+    color: rgba($dark-blue, 0.75);
+    font: inherit;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    @include breakpoint(md) {
+      position: relative;
+      padding-bottom: 26px;
+      border-bottom: 0;
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    &:hover {
+      color: $light-red;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $light-red;
+      outline-offset: 2px;
+    }
+  }
+
+  &__tab-label {
+    display: inline-block;
+    padding-block: 17px;
+    border-bottom: 4px solid transparent;
+
+    @include breakpoint(md) {
+      padding: 0;
+      border: 0;
+    }
+  }
+
+  &__tab--active {
+    color: $dark-blue;
+
+    .features__tab-label {
+      border-bottom-color: $light-red;
+
+      @include breakpoint(md) {
+        border-bottom-color: transparent;
+      }
+    }
+
+    @include breakpoint(md) {
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: -1px;
+        left: 0;
+        height: 4px;
+        background-color: $light-red;
+      }
+    }
+  }
+
+  // ===== Panel =====
+  &__panel {
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-top: 73px;
+
+    @include breakpoint(md) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 35px;
+      right: calc(100% - 268px);
+      left: -100vw;
+      z-index: -1;
+      height: 203px;
+      border-bottom-right-radius: 100px;
+      background-color: $light-blue;
+
+      @include breakpoint(md) {
+        top: 83px;
+        right: calc(100% - 470px);
+        height: 352px;
+        border-bottom-right-radius: 176px;
+      }
+    }
+  }
+
+  &__image {
+    @include breakpoint(md) {
+      flex: 0 1 540px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__content {
+    text-align: center;
+
+    @include breakpoint(md) {
+      flex: 0 1 445px;
+      text-align: left;
+    }
+  }
+
+  &__heading {
+    margin: 0;
+    color: $dark-blue;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+
+    @include breakpoint(md) {
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+
+  &__description {
+    margin: 8px 0 0;
+    color: $gray;
+    font-size: 15px;
+    line-height: 25px;
+
+    @include breakpoint(md) {
+      margin-top: 24px;
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  &__more {
+    display: none;
+
+    @include breakpoint(md) {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 14px 24px;
+      font-weight: 500;
+    }
+  }
+}

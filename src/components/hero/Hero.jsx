@@ -16,15 +16,10 @@ const Hero = () => {
             free.
           </p>
           <div className="hero__actions">
-            <Button
-              href="https://chromewebstore.google.com"
-            >
+            <Button href="https://chromewebstore.google.com">
               Get it on Chrome
             </Button>
-            <Button
-              variant="secondary"
-              href="https://addons.mozilla.org"
-            >
+            <Button variant="secondary" href="https://addons.mozilla.org">
               Get it on Firefox
             </Button>
           </div>
