@@ -1,0 +1,95 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.feature-modal {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 15px;
+
+  @include breakpoint(md) {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__image {
+    position: relative;
+    z-index: 0;
+    padding: 56px 32px 32px;
+
+    @include breakpoint(md) {
+      flex: 0 0 48%;
+      padding: 56px 24px 48px 40px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 35%;
+      right: 25%;
+      bottom: 24px;
+      left: 0;
+      z-index: -1;
+      border-bottom-right-radius: 120px;
+      background-color: $light-blue;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      margin-inline: auto;
+    }
+  }
+
+  &__content {
+    padding: 0 24px 40px;
+    text-align: center;
+
+    @include breakpoint(md) {
+      flex: 1;
+      padding: 48px 48px 48px 16px;
+      text-align: left;
+    }
+  }
+
+  &__label {
+    margin: 0;
+    color: $light-red;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: 12px 0 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+
+    @include breakpoint(md) {
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+
+  &__text {
+    margin: 16px 0 0;
+    color: $gray;
+    font-size: 15px;
+    line-height: 25px;
+
+    @include breakpoint(md) {
+      font-size: 16px;
+      line-height: 28px;
+    }
+  }
+
+  &__more {
+    margin-top: 24px;
+    padding: 14px 24px;
+    font-weight: 500;
+  }
+}

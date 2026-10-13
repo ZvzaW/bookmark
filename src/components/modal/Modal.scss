@@ -1,0 +1,65 @@
+@use "../../styles/abstracts/variables" as *;
+
+html:has(.modal[open]) {
+  overflow: hidden;
+}
+
+.modal {
+  width: min(880px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  padding: 0;
+  border: 0;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px -10px rgba($dark-blue, 0.4);
+  color: $dark-blue;
+
+  &::backdrop {
+    background-color: rgba($dark-blue, 0.7);
+  }
+
+  &[open] {
+    animation: modal-in 0.3s ease-out;
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1;
+    display: flex;
+    padding: 8px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+
+    path {
+      fill: $dark-blue;
+      transition: fill 0.2s;
+    }
+
+    &:hover path {
+      fill: $light-red;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $light-red;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &[open] {
+      animation: none;
+    }
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+}
