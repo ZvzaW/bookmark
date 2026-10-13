@@ -1,8 +1,8 @@
 import { useState } from "react";
 import ErrorIcon from "../../assets/images/icon-error.svg";
 import Button from "../button/Button";
-import { emailSchema } from "../../utils/schemas";
-import { validate } from "../../utils/schemas";
+import { emailSchema } from "../../utils/validationSchemas";
+import { validate } from "../../utils/validationSchemas";
 import "./Newsletter.scss";
 
 const Newsletter = () => {
