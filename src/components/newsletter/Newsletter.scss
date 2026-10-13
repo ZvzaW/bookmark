@@ -1,0 +1,123 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.newsletter {
+  background-color: $light-blue;
+  color: white;
+  text-align: center;
+
+  &__container {
+    padding-top: 72px;
+    padding-bottom: 60px;
+
+    @include breakpoint(md) {
+      padding-top: 69px;
+      padding-bottom: 74px;
+    }
+  }
+
+  &__joined {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 4.6px;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    max-width: 445px;
+    margin: 12px auto 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+
+    @include breakpoint(md) {
+      margin-top: 37px;
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 442px;
+    margin: 32px auto 0;
+
+    @include breakpoint(md) {
+      flex-direction: row;
+      align-items: flex-start;
+      margin-top: 36px;
+    }
+  }
+
+  &__field {
+    position: relative;
+    flex: 1;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-color: white;
+
+    &--error {
+      border-color: $light-red;
+      background-color: $light-red;
+    }
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 48px 15px 18px;
+    border: 0;
+    border-radius: 4px;
+    color: $dark-blue;
+    font: inherit;
+    font-size: 14px;
+
+    &::placeholder {
+      color: rgba($dark-blue, 0.35);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $dark-blue;
+      outline-offset: 4px;
+    }
+  }
+
+  &__error-icon {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+  }
+
+  &__error {
+    margin: 0;
+    padding: 4px 10px 2px;
+
+    @include breakpoint(md) {
+      position: absolute;
+      top: 100%;
+      right: -2px;
+      left: -2px;
+      border-radius: 0 0 5px 5px;
+      background-color: $light-red;
+    }
+
+    font-size: 10px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 14px;
+    text-align: left;
+  }
+
+  &__status {
+    font-size: 14px;
+
+    &:not(:empty) {
+      margin-top: 16px;
+    }
+  }
+}
