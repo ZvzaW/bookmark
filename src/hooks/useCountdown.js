@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-
 export const useCountdown = (from, duration) => {
   const [value, setValue] = useState(from);
 

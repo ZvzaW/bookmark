@@ -2,13 +2,9 @@ import { useEffect, useState } from "react";
 import Logo from "../../assets/images/logo-bookmark.svg";
 import HamburgerIcon from "../../assets/images/icon-hamburger.svg";
 import CloseIcon from "../../assets/images/icon-close.svg";
-import FacebookIcon from "../../assets/images/icon-facebook.svg";
-import TwitterIcon from "../../assets/images/icon-twitter.svg";
 import { navLinks, socialLinks } from "../../data/navigation";
 import Button from "../button/Button";
 import "./Header.scss";
-
-const socialIcons = { Facebook: FacebookIcon, Twitter: TwitterIcon };
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -79,8 +75,7 @@ const Header = () => {
           </Button>
 
           <ul className="header__social">
-            {socialLinks.map(({ label, href }) => {
-              const Icon = socialIcons[label];
+            {socialLinks.map(({ label, href, icon: Icon }) => {
               return (
                 <li key={label}>
                   <a
