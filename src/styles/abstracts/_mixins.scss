@@ -6,3 +6,9 @@
     @content;
   }
 }
+
+@mixin focus-ring {
+  outline: 2px solid $light-red;
+  outline-offset: 3px;
+  border-radius: 4px;
+}

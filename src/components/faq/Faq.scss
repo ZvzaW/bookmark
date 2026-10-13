@@ -90,8 +90,7 @@
     }
 
     &:focus-visible {
-      outline: 2px solid $light-red;
-      outline-offset: 2px;
+      @include focus-ring;
     }
   }
 

@@ -82,8 +82,7 @@
     }
 
     &:focus-visible {
-      outline: 2px solid $dark-blue;
-      outline-offset: 4px;
+      @include focus-ring;
     }
   }
 

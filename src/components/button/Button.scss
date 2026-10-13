@@ -1,4 +1,5 @@
 @use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
 
 .button {
   display: inline-block;
@@ -22,18 +23,13 @@
   }
 
   &:focus-visible {
-    outline: 2px solid;
-    outline-offset: 2px;
+    @include focus-ring;
   }
 
   // ===== Variants =====
   &--primary {
     color: white;
     background-color: $light-blue;
-
-    &:focus-visible {
-      outline-color: $light-blue;
-    }
 
     &:hover {
       color: $light-blue;
@@ -53,10 +49,6 @@
   &--accent {
     color: white;
     background-color: $light-red;
-
-    &:focus-visible {
-      outline-color: $light-red;
-    }
 
     &:hover {
       color: $light-red;

@@ -1,4 +1,5 @@
 @use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
 
 html:has(.modal[open]) {
   overflow: hidden;
@@ -46,7 +47,7 @@ html:has(.modal[open]) {
     }
 
     &:focus-visible {
-      outline: 2px solid $light-red;
+      @include focus-ring;
     }
   }
 

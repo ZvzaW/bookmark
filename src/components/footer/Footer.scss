@@ -83,7 +83,6 @@
   &__logo:focus-visible,
   &__link:focus-visible,
   &__social-link:focus-visible {
-    outline: 2px solid $light-red;
-    outline-offset: 4px;
+    @include focus-ring;
   }
 }
