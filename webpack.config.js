@@ -23,7 +23,10 @@ module.exports = (env, argv) => {
           test: /\.jsx?$/,
           include: path.resolve(__dirname, "src"),
           type: "javascript/auto",
-          use: "babel-loader",
+          use: {
+            loader: "babel-loader",
+            options: { envName: argv.mode },
+          },
         },
         {
           test: /\.s?css$/,
