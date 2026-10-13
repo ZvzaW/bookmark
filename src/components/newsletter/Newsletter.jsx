@@ -3,6 +3,7 @@ import ErrorIcon from "../../assets/images/icon-error.svg";
 import Button from "../button/Button";
 import { emailSchema } from "../../utils/validationSchemas";
 import { validate } from "../../utils/validationSchemas";
+import JoinedCounter from "./JoinedCounter";
 import "./Newsletter.scss";
 
 const Newsletter = () => {
@@ -34,7 +35,7 @@ const Newsletter = () => {
       aria-labelledby="newsletter-title"
     >
       <div className="container newsletter__container">
-        <p className="newsletter__joined">35,000+ already joined</p>
+        <JoinedCounter className="newsletter__joined" />
         <h2 id="newsletter-title" className="newsletter__title">
           Stay up-to-date with what we’re doing
         </h2>
